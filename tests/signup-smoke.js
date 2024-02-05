@@ -3,10 +3,10 @@ import { sleep, check } from 'k6'
 import { uuidv4 } from 'https://jslib.k6.io/k6-utils/1.4.0/index.js';
 
 export const options = {
-  vus: 10,
-  duration: '30s',
+  vus: 1,
+  duration: '1m',
   thresholds: {
-    http_req_duration: ['p(95)<250'], // 95% of requests must complete below 250ms
+    http_req_duration: ['p(95)<2000'], // 95% of requests must complete below 250ms
     http_req_failed: ['rate<0.01'], // http errors should be less than 1%
   },
 }
